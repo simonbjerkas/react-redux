@@ -1,6 +1,6 @@
 // 4) Create a component
 
-const App = (): JSX.Element => {
+const App: React.FC = () => {
   return <h1>Hello there!</h1>;
 };
 
