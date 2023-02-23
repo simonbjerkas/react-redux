@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Create local database
+
+Create a db.json file in root directory, with following initial setup:
+
+```json
+{
+  "books": []
+}
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
