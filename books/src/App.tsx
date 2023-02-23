@@ -25,9 +25,21 @@ const App = () => {
     ]);
   };
 
+  const editBookById = (id: number, title: string): void => {
+    setBooks((prevBooks: TBook[]): TBook[] => {
+      return prevBooks.map((book: TBook): TBook => {
+        if (book.id === id) {
+          return { ...book, title };
+        }
+        return book;
+      });
+    });
+  };
+
   return (
     <div className="app">
-      <BookList books={books} onDelete={deleteBookById} />
+      <h1>Reading List</h1>
+      <BookList books={books} onDelete={deleteBookById} onEdit={editBookById} />
       <BookCreate onCreate={handleCreateBook} />
     </div>
   );
