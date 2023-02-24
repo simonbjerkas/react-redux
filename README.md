@@ -11,5 +11,9 @@ Learning react and redux. Starting with react basics and diving into redux later
   - Using the state system.
 - [Picture searcher](./pics/)
   - Search a term and get pictures of the term. Fetching pictures from an API.
+- [What books to read?](./books/)
+  - Learned what hooks is and continued working working with an API, this time loacaly set up.
+    - Using useEffect()
+    - Using useCallback()
 
 ## Redux included
