@@ -15,5 +15,11 @@ Learning react and redux. Starting with react basics and diving into redux later
   - Learned what hooks is and continued working working with an API, this time loacaly set up.
     - Using useEffect()
     - Using useCallback()
+- [Building components!](./comps/)
+  - Overview:
+    - Practise with state, events, etc.
+    - Build commonly used components
+    - Navigation between different pages
+    - Different approaches to syling
 
 ## Redux included
