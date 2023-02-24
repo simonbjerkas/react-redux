@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { TBook } from '../App';
+import { TBook } from '../context/books';
+import { useBooksContext } from '../hooks/use-books-context';
 
 interface IBookEdit {
   book: TBook;
-  onSubmit(id: number, newTitle: string): void;
+  onSubmit(): void;
 }
 
 const BookEdit = ({ book, onSubmit }: IBookEdit) => {
   const [newTitle, setNewTitle] = useState(book.title);
+
+  const { editBookById } = useBooksContext();
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
     setNewTitle(e.currentTarget.value);
@@ -15,7 +18,8 @@ const BookEdit = ({ book, onSubmit }: IBookEdit) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>): void => {
     e.preventDefault();
-    onSubmit(book.id, newTitle);
+    onSubmit();
+    editBookById(book.id, newTitle);
   };
 
   return (

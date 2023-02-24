@@ -1,17 +1,12 @@
-import { TBook } from '../App';
+import { TBook } from '../context/books';
+import { useBooksContext } from '../hooks/use-books-context';
 import BookShow from './BookShow';
 
-interface IBookList {
-  books: TBook[];
-  onDelete(id: number): void;
-  onEdit(id: number, title: string): void;
-}
+const BookList = () => {
+  const { books } = useBooksContext();
 
-const BookList = ({ books, onDelete, onEdit }: IBookList) => {
   const renderedBooks = books.map((book: TBook) => {
-    return (
-      <BookShow key={book.id} book={book} onDelete={onDelete} onEdit={onEdit} />
-    );
+    return <BookShow key={book.id} book={book} />;
   });
 
   return <div className="book-list">{renderedBooks}</div>;

@@ -1,26 +1,26 @@
 import { useState } from 'react';
-import { TBook } from '../App';
+import { TBook } from '../context/books';
+import { useBooksContext } from '../hooks/use-books-context';
 import BookEdit from './BookEdit';
 
 interface IBookShow {
   book: TBook;
-  onDelete(id: number): void;
-  onEdit(id: number, title: string): void;
 }
 
-const BookShow = ({ book, onDelete, onEdit }: IBookShow) => {
+const BookShow = ({ book }: IBookShow) => {
   const [showEdit, setShowEdit] = useState(false);
 
+  const { deleteBookById } = useBooksContext();
+
   const handleDeleteClick = (): void => {
-    onDelete(book.id);
+    deleteBookById(book.id);
   };
 
   const handleEditClick = (): void => {
     setShowEdit(!showEdit);
   };
 
-  const handleSubmit = (id: number, newTitle: string): void => {
-    onEdit(id, newTitle);
+  const handleSubmit = (): void => {
     setShowEdit(false);
   };
 
