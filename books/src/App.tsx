@@ -22,7 +22,9 @@ const App = () => {
     fetchBooks();
   }, []);
 
-  const deleteBookById = (id: number): void => {
+  const deleteBookById = async (id: number): Promise<void> => {
+    await axios.delete(`${apiUrl}/${id}`);
+
     setBooks((prevBooks: TBook[]): TBook[] => {
       return prevBooks.filter((book: TBook, idx: number): Boolean => {
         return book.id !== id;
@@ -37,11 +39,13 @@ const App = () => {
     setBooks((prevBooks: TBook[]): TBook[] => [...prevBooks, response.data]);
   };
 
-  const editBookById = (id: number, title: string): void => {
+  const editBookById = async (id: number, title: string): Promise<void> => {
+    const response = await axios.put(`${apiUrl}/${id}`, { title });
+
     setBooks((prevBooks: TBook[]): TBook[] => {
       return prevBooks.map((book: TBook): TBook => {
         if (book.id === id) {
-          return { ...book, title };
+          return { ...book, ...response.data };
         }
         return book;
       });
