@@ -12,7 +12,7 @@ const ButtonPage = () => {
   const handleClick = (): void => console.log('Clicked!');
 
   return (
-    <div className="flex flex-col gap-4 p-5">
+    <div>
       <div>
         <Button onClick={handleClick}>
           <GoBell />
