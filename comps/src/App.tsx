@@ -1,28 +1,23 @@
-import Accordion, { TAccordion } from './components/Accordion';
+import { useState } from 'react';
+import Dropdown, { TDropdown } from './components/Dropdown';
 
 const App = () => {
-  const items: TAccordion[] = [
-    {
-      id: 'sidfjdi',
-      label: 'Can I use React on a project?',
-      content:
-        'You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.',
-    },
-    {
-      id: 'dsfbk',
-      label: 'Can I use Typescript on a project?',
-      content:
-        'You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.',
-    },
-    {
-      id: 'dfubs',
-      label: 'Can I use CSS on a project?',
-      content:
-        'You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.',
-    },
+  const [selection, setSelection] = useState<TDropdown | null>(null);
+
+  const handleSelect = (option: TDropdown): void => setSelection(option);
+
+  const options: TDropdown[] = [
+    { label: 'Red', value: 'red' },
+    { label: 'Blue', value: 'blue' },
+    { label: 'Green', value: 'green' },
   ];
 
-  return <Accordion items={items} />;
+  return (
+    <div className="flex">
+      <Dropdown options={options} value={selection} onChange={handleSelect} />
+      <Dropdown options={options} value={selection} onChange={handleSelect} />
+    </div>
+  );
 };
 
 export default App;
