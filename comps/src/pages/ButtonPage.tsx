@@ -9,7 +9,7 @@ import {
 import Button from '../components/Button';
 
 const ButtonPage = () => {
-  const handleClick = (): void => console.log('Clicked!');
+  const handleClick = (): void => {};
 
   return (
     <div>

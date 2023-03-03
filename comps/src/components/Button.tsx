@@ -53,25 +53,32 @@ const Button = ({
   danger,
   ...rest
 }: TButton) => {
-  const styling = classNames(
-    rest.className,
-    'flex items-center border px-3 py-1.5',
-    {
-      'border-black': !primary && !secondary && !success && !warning && !danger,
-      'border-blue-400 bg-blue-400 text-white': primary,
-      'border-slate-400 bg-slate-400 text-white': secondary,
-      'border-green-400 bg-green-400 text-white': success,
-      'border-yellow-400 bg-yellow-400 text-white': warning,
-      'border-red-400 bg-red-400 text-white': danger,
-      'rounded-full': rounded,
-      'bg-white': outline,
-      'text-blue-400': outline && primary,
-      'text-slate-400': outline && secondary,
-      'text-green-400': outline && success,
-      'text-yellow-400': outline && warning,
-      'text-red-400': outline && danger,
-    }
-  );
+  const styling = classNames('flex items-center px-3 py-1.5 border', {
+    'border-black': !primary && !secondary && !success && !warning && !danger,
+
+    'border-sky-500': primary,
+    'border-gray-600': secondary,
+    'border-green-500': success,
+    'border-yellow-400': warning,
+    'border-red-500': danger,
+
+    'bg-sky-500': primary && !outline,
+    'bg-gray-600': secondary && !outline,
+    'bg-green-500': success && !outline,
+    'bg-yellow-400': warning && !outline,
+    'bg-red-500': danger && !outline,
+    'bg-white': outline,
+
+    'text-white':
+      !outline && (primary || secondary || success || warning || danger),
+    'text-sky-500': outline && primary,
+    'text-gray-600': outline && secondary,
+    'text-green-500': outline && success,
+    'text-yellow-400': outline && warning,
+    'text-red-500': outline && danger,
+
+    'rounded-full': rounded,
+  });
   return (
     <button {...rest} className={styling}>
       {children}
