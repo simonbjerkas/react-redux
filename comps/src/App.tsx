@@ -4,6 +4,7 @@ import AccordionPage from './pages/AccordionPage';
 import ButtonPage from './pages/ButtonPage';
 import DropdownPage from './pages/DropdownPage';
 import ModalPage from './pages/ModalPage';
+import TablePage from './pages/TablePage';
 
 const App = () => {
   const pages = [
@@ -11,6 +12,7 @@ const App = () => {
     { label: 'Accordion', path: '/accordion' },
     { label: 'Button', path: '/buttons' },
     { label: 'Modal', path: '/modal' },
+    { label: 'Table', path: '/table' },
   ];
   return (
     <div className="container mx-auto mt-4 grid grid-cols-6 gap-4">
@@ -27,6 +29,9 @@ const App = () => {
         </Route>
         <Route path="/modal">
           <ModalPage />
+        </Route>
+        <Route path="/table">
+          <TablePage />
         </Route>
       </div>
     </div>
